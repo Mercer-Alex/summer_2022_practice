@@ -15,7 +15,14 @@ def has_cycle(root, index):
     except:
         return False
 
-
+def has_cycle_dict(root):
+    inList = set()
+    while root:
+        if root in inList:
+            return True
+        inList.add(root)
+        root = root.next
+    return False
 
 cycle_list = ListNode(3)
 cycle_list.next = ListNode(2)
@@ -25,3 +32,6 @@ cycle_list.next.next.next.next = cycle_list
 index = 1
 
 print(has_cycle(cycle_list, index))
+
+print(has_cycle_dict(cycle_list))
+
